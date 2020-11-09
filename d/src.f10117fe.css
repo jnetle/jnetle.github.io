@@ -1,7 +1,8 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
-  background: url(https://mlb.mlb.com/mlb/images/devices/ballpark/1920x1080/1.jpg);
+  background: url(http://mlb.mlb.com/mlb/images/devices/ballpark/1920x1080/1.jpg);
   background-size: cover;
+  background-color: #000000;
   padding: 1rem;
   color: #ffffff;
 }
