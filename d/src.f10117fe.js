@@ -382,7 +382,7 @@ function getGames(date) {
 
           return [4
           /*yield*/
-          , fetch("http://statsapi.mlb.com/api/v1/schedule?hydrate=game(content(editorial(recap))),decisions&date=" + date + "&sportId=1")];
+          , fetch("https://statsapi.mlb.com/api/v1/schedule?hydrate=game(content(editorial(recap))),decisions&date=" + date + "&sportId=1")];
 
         case 1:
           response = _a.sent();
@@ -818,7 +818,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56377" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57896" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
