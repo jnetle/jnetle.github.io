@@ -695,18 +695,23 @@ function loadPage() {
   var _a;
 
   return __awaiter(this, void 0, void 0, function () {
-    var filmstripContainer, response, firstDate, header, uiGames;
+    var filmstripContainer, response, firstDate, header, uiGames, exception_1;
     return __generator(this, function (_b) {
       switch (_b.label) {
         case 0:
-          currentGamePk = 0;
           filmstripContainer = document.getElementsByClassName("filmstrip-container")[0];
+          _b.label = 1;
+
+        case 1:
+          _b.trys.push([1, 3, 4, 5]);
+
+          currentGamePk = 0;
           filmstripContainer.classList.add("pre-animation");
           return [4
           /*yield*/
           , getGames_1.getGames(date)];
 
-        case 1:
+        case 2:
           response = _b.sent();
 
           if (!response) {
@@ -718,12 +723,14 @@ function loadPage() {
 
           firstDate = response.dates[0];
           games = (_a = firstDate === null || firstDate === void 0 ? void 0 : firstDate.games) === null || _a === void 0 ? void 0 : _a.filter(function (g, i) {
-            return g.gamePk && g.content.editorial;
+            var _a, _b, _c;
+
+            return g.gamePk && ((_c = (_b = (_a = g.content) === null || _a === void 0 ? void 0 : _a.editorial) === null || _b === void 0 ? void 0 : _b.recap) === null || _c === void 0 ? void 0 : _c.mlb);
           });
           header = document.getElementById("h1-date");
 
           if (header) {
-            header.innerHTML = "Game Day - " + new Date(date).toLocaleDateString();
+            header.innerHTML = "Game Day - " + new Date(date).toISOString().split("T")[0];
           }
 
           if (!games) {
@@ -758,7 +765,6 @@ function loadPage() {
             return null;
           });
           filmstripContainer.innerHTML = "<div class=\"filmstrip\">" + uiGames.join("") + "</div>";
-          filmstripContainer.classList.remove("pre-animation");
           document.querySelectorAll(".game-thumbnail").forEach(function (e) {
             e.addEventListener("click", function (evt) {
               var gameId = evt.target.parentElement.getAttribute("id");
@@ -766,6 +772,25 @@ function loadPage() {
               renderActiveGame();
             });
           });
+          return [3
+          /*break*/
+          , 5];
+
+        case 3:
+          exception_1 = _b.sent();
+          filmstripContainer.innerHTML = "Error with page";
+          console.log("ERROR -", exception_1);
+          return [3
+          /*break*/
+          , 5];
+
+        case 4:
+          filmstripContainer.classList.remove("pre-animation");
+          return [7
+          /*endfinally*/
+          ];
+
+        case 5:
           return [2
           /*return*/
           ];
@@ -818,7 +843,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49951" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64122" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
