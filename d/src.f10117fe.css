@@ -1,5 +1,8 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
+  /* 
+  need https to run on github pages - so pulled in as own asset
+  background: url(http://mlb.mlb.com/mlb/images/devices/ballpark/1920x1080/1.jpg); */
   background: url(background.2d20997f.jpg);
   background-size: cover;
   background-color: #000000;
@@ -59,6 +62,7 @@ h1 {
   height: 180px;
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
   border: 1px solid #fff;
   border-radius: 4px;
   cursor: pointer;
